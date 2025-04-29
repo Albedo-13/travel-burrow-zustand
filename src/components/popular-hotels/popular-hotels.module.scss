@@ -1,0 +1,39 @@
+@use '@styles/colors' as *;
+@use '@styles/variables' as *;
+
+.popularHotels {
+  padding: 120px 0 60px 0;
+}
+
+.title {
+  font-weight: $fw800;
+  font-size: $fs32;
+  margin-bottom: 60px;
+}
+
+.buttonPrev {
+  font-weight: $fw400;
+  position: absolute;
+  top: 0;
+  right: 100px;
+  color: $dark;
+}
+
+.buttonNext {
+  font-weight: $fw400;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+@media (max-width: $tablet) {
+  .popularHotels {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: $mobile) {
+  .title {
+    visibility: hidden;
+  }
+}

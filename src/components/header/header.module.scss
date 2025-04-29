@@ -1,0 +1,145 @@
+@use '@styles/colors.scss' as *;
+@use '@styles/variables.scss' as *;
+@use '@styles/mixins' as *;
+
+.headerHome {
+  @include underlayBackground();
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  min-height: 170px;
+}
+
+.headerAbout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.headerTours {
+  .item {
+    color: $dark;
+  }
+}
+
+.loginButton {
+  color: $dark;
+}
+
+.headerWrapperHome {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerWrapperAbout {
+  @include underlayBackground();
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 20px;
+
+  & > :last-child {
+    padding-right: 100px;
+  }
+}
+
+.headerWrapperTours {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.item {
+  font-size: $fs20;
+  font-weight: $fw600;
+  color: $white;
+  text-decoration: none;
+  text-decoration-color: $accent;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: $accent;
+  }
+}
+
+.itemActive {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: $accent;
+}
+
+.logo {
+  max-height: 94px;
+}
+
+.buttons {
+  & > :first-child {
+    margin-right: 10px;
+  }
+}
+
+.separator {
+  opacity: 0.1;
+  margin: 0;
+}
+
+.menu {
+  display: none;
+}
+
+@media (max-width: $desktopS) {
+  .headerWrapperAbout {
+    & > :last-child {
+      padding-right: 0;
+    }
+  }
+
+  .list {
+    gap: 20px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menuItem {
+    .item {
+      color: $dark;
+    }
+  }
+
+  .headerHome {
+    min-height: auto;
+  }
+
+  .headerWrapperHome {
+    padding: 8px 16px 20px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .logo {
+    display: none;
+  }
+}

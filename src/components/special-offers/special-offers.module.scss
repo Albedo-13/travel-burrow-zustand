@@ -1,0 +1,50 @@
+@use '@styles/colors' as *;
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.specialOffers {
+  @include gradientBackground();
+  margin-top: 120px;
+  min-height: 330px;
+  padding: 60px 0;
+  position: relative;
+}
+
+.underlay {
+  @include underlayBackground();
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 569px;
+  text-align: center;
+}
+
+.title {
+  font-weight: $fw800;
+  font-size: $fs32;
+}
+
+.text {
+  margin: 32px 0;
+  line-height: 144%;
+}
+
+.image {
+  position: absolute;
+  right: 0;
+  bottom: -72px;
+}
+
+@media (max-width: $desktop) {
+  .image {
+    display: none;
+  }
+
+  .specialOffers {
+    margin-top: 0;
+    min-height: auto;
+  }
+
+  .underlay {
+    max-width: 100%;
+  }
+}

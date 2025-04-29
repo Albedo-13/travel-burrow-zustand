@@ -1,0 +1,59 @@
+@use '@styles/variables' as *;
+
+.hotelDescription {
+  padding: 60px 0;
+}
+
+.hotelDetails {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.hotelImage {
+  width: 350px;
+  height: 200px;
+
+  img {
+    width: 350px;
+    height: 100%;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: $fw600;
+  font-size: $fs18;
+}
+
+.descriptionRow {
+  display: flex;
+  align-content: flex-end;
+  gap: 16px;
+  margin-top: 18px;
+  line-height: 100%;
+}
+
+@media (max-width: $desktopS) {
+  .hotelDetails {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: $mobile) {
+  .hotelDetails {
+    flex-wrap: wrap;
+  }
+
+  .hotelImage {
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

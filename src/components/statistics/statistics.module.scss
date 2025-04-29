@@ -1,0 +1,79 @@
+@use '@styles/colors' as *;
+@use '@styles/variables' as *;
+
+.statistics {
+  padding: 60px 0;
+}
+
+.image {
+  height: auto;
+}
+
+.statisticsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.contentWrapper {
+  max-width: 50%;
+}
+
+.subtitle {
+  font-weight: $fw600;
+  font-size: $fs16;
+  opacity: 0.6;
+}
+
+.title {
+  font-weight: $fw800;
+  font-size: $fs32;
+  margin-top: 6px;
+}
+
+.text {
+  font-weight: $fw400;
+  font-size: $fs18;
+  line-height: 178%;
+  margin-top: 32px;
+}
+
+.stats {
+  margin-top: 32px;
+  display: flex;
+  gap: 40px;
+  color: $accent;
+  font-weight: $fw700;
+  font-size: $fs32;
+
+  .statsText {
+    font-weight: $fw400;
+    font-size: $fs16;
+    opacity: 0.6;
+    margin-top: 6px;
+    color: $dark;
+  }
+}
+
+@media (max-width: $desktop) {
+  .statisticsWrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contentWrapper {
+    max-width: 100%;
+  }
+
+  .image {
+    max-height: 500px;
+    max-width: 100%;
+  }
+}
