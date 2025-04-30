@@ -1,5 +1,4 @@
 import { Skeleton } from '@mui/material';
-import { observer } from 'mobx-react-lite';
 import { lazy, Suspense } from 'react';
 
 import styles from './welcome-home.module.scss';
@@ -10,7 +9,7 @@ const SearchForm = lazy(() =>
   }))
 );
 
-export const WelcomeHome = observer(() => {
+export const WelcomeHome = () => {
   return (
     <section className={styles.welcome}>
       <div className="container">
@@ -30,4 +29,4 @@ export const WelcomeHome = observer(() => {
       </div>
     </section>
   );
-});
+};

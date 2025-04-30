@@ -1,4 +1,3 @@
-import { useStores } from '@hooks/use-stores';
 import HotelIcon from '@mui/icons-material/Hotel';
 import PersonIcon from '@mui/icons-material/Person';
 import PublicIcon from '@mui/icons-material/Public';
@@ -11,16 +10,16 @@ import { TimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { observer } from 'mobx-react-lite';
 import { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { MAX_HOTEL_PRICE, MIN_HOTEL_PRICE } from '@/constants';
+import { useStores } from '@/stores/root-store';
 import { Hotel } from '@/types/hotel';
 
 import styles from './search-form.module.scss';
 
-export const SearchForm = observer(() => {
+export const SearchForm = () => {
   const [selectedHotel, setSelectedHotel] = useState<Hotel | null>(null);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -122,4 +121,4 @@ export const SearchForm = observer(() => {
       </div>
     </>
   );
-});
+};

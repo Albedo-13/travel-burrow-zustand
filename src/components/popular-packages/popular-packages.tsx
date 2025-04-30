@@ -16,9 +16,8 @@ import package2 from '@assets/images/popular-packages/package-2.webp';
 import package3 from '@assets/images/popular-packages/package-3.webp';
 import package4 from '@assets/images/popular-packages/package-4.webp';
 import clsx from 'clsx';
-import { observer } from 'mobx-react-lite';
 
-import { useStores } from '@/hooks/use-stores';
+import { useStores } from '@/stores/root-store';
 
 import styles from './popular-packages.module.scss';
 
@@ -121,7 +120,7 @@ const popularPackages = [
   },
 ];
 
-export const PopularPackages = observer(() => {
+export const PopularPackages = () => {
   const {
     hotelsStore: { currency },
   } = useStores();
@@ -158,4 +157,4 @@ export const PopularPackages = observer(() => {
       </div>
     </section>
   );
-});
+};

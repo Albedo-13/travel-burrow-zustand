@@ -5,12 +5,11 @@ import { SpecialOffers } from '@components/special-offers/special-offers';
 import { Statistics } from '@components/statistics/statistics';
 import { Testimonials } from '@components/testimonials/testimonials';
 import { WelcomeHome } from '@components/welcome-home/welcome-home';
-import { useStores } from '@hooks/use-stores';
 import { Skeleton } from '@mui/material';
-import { observer } from 'mobx-react-lite';
 import { lazy, Suspense, useEffect } from 'react';
 
-// TODO: уменьшить бандл (KNIP, формат ассетов в webp)
+import { useStores } from '@/stores/root-store';
+
 const Benefits = lazy(() =>
   import('@components/benefits/benefits').then((module) => ({
     default: module.Benefits,
@@ -27,7 +26,7 @@ const BookBike = lazy(() =>
   }))
 );
 
-export const HomePage = observer(() => {
+export const HomePage = () => {
   const {
     hotelsStore: { getHotelsListAction },
     testimonialsStore: { getTestimonialsListAction },
@@ -64,4 +63,4 @@ export const HomePage = observer(() => {
       <Footer />
     </>
   );
-});
+};

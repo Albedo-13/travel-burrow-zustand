@@ -4,11 +4,11 @@ import { Header } from '@components/header/header';
 import { Statistics } from '@components/statistics/statistics';
 import { Testimonials } from '@components/testimonials/testimonials';
 import { WelcomeAboutUs } from '@components/welcome-about-us/welcome-about-us';
-import { useStores } from '@hooks/use-stores';
-import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
-export const AboutUsPage = observer(() => {
+import { useStores } from '@/stores/root-store';
+
+export const AboutUsPage = () => {
   const {
     testimonialsStore: { getTestimonialsListAction },
   } = useStores();
@@ -27,4 +27,4 @@ export const AboutUsPage = observer(() => {
       <Footer />
     </>
   );
-});
+};

@@ -1,9 +1,12 @@
-import { hotelsStore } from './hotels-store';
-import { testimonialsStore } from './testimonials-store';
+import { useHotelsStore } from './hotels-store';
+import { useTestimonialsStore } from './testimonials-store';
 
-class RootStore {
-  hotelsStore = hotelsStore;
-  testimonialsStore = testimonialsStore;
-}
+export const useStores = () => {
+  const testimonialsStore = useTestimonialsStore();
+  const hotelsStore = useHotelsStore();
 
-export const rootStore = new RootStore();
+  return {
+    hotelsStore,
+    testimonialsStore,
+  };
+};

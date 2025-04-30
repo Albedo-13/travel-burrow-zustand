@@ -1,9 +1,8 @@
-import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router';
 
 import styles from './welcome-about-us.module.scss';
 
-export const WelcomeAboutUs = observer(() => {
+export const WelcomeAboutUs = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => navigate('/tour-packages');
@@ -24,4 +23,4 @@ export const WelcomeAboutUs = observer(() => {
       </div>
     </section>
   );
-});
+};

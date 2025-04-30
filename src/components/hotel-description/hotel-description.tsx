@@ -1,13 +1,12 @@
 import { Rating, Skeleton } from '@mui/material';
-import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import { useStores } from '@/hooks/use-stores';
+import { useStores } from '@/stores/root-store';
 
 import styles from './hotel-description.module.scss';
 
-export const HotelDescription = observer(() => {
+export const HotelDescription = () => {
   const { id = '' } = useParams();
 
   const {
@@ -87,4 +86,4 @@ export const HotelDescription = observer(() => {
       </div>
     </section>
   );
-});
+};

@@ -2,10 +2,10 @@ import { Footer } from '@components/footer/footer';
 import { Header } from '@components/header/header';
 import { HotelsList } from '@components/hotels-list/hotels-list';
 import { Testimonials } from '@components/testimonials/testimonials';
-import { useStores } from '@hooks/use-stores';
 import { Skeleton } from '@mui/material';
-import { observer } from 'mobx-react-lite';
 import { lazy, Suspense, useEffect } from 'react';
+
+import { useStores } from '@/stores/root-store';
 
 const BookBike = lazy(() =>
   import('@components/book-bike/book-bike').then((module) => ({
@@ -13,7 +13,7 @@ const BookBike = lazy(() =>
   }))
 );
 
-export const TourPackagesPage = observer(() => {
+export const TourPackagesPage = () => {
   const {
     hotelsStore: { getHotelsListAction },
     testimonialsStore: { getTestimonialsListAction },
@@ -37,4 +37,4 @@ export const TourPackagesPage = observer(() => {
       <Footer />
     </>
   );
-});
+};

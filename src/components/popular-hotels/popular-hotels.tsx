@@ -1,17 +1,17 @@
 import 'swiper/css';
 
-import { useStores } from '@hooks/use-stores';
 import { Skeleton } from '@mui/material';
 import clsx from 'clsx';
-import { observer } from 'mobx-react-lite';
 import { useRef } from 'react';
 import Swiper from 'swiper';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 
+import { useStores } from '@/stores/root-store';
+
 import { HotelCard } from '../hotel-card/hotel-card';
 import styles from './popular-hotels.module.scss';
 
-export const PopularHotels = observer(() => {
+export const PopularHotels = () => {
   const swiperRef = useRef<Swiper | null>(null);
 
   const {
@@ -63,7 +63,7 @@ export const PopularHotels = observer(() => {
               },
             }}
           >
-            {sliced16HotelsList?.map((hotel) => (
+            {sliced16HotelsList()?.map((hotel) => (
               <SwiperSlide key={hotel.id}>
                 <HotelCard hotel={hotel} />
               </SwiperSlide>
@@ -73,4 +73,4 @@ export const PopularHotels = observer(() => {
       </div>
     </section>
   );
-});
+};

@@ -1,8 +1,6 @@
 import '@styles/index.scss';
 
-import { RootStoreContext } from '@hooks/use-stores';
 import { ThemeProvider } from '@mui/material';
-import { rootStore } from '@stores/root-store';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
@@ -21,11 +19,9 @@ async function enableMocking() {
 enableMocking().then(() => {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
-      <RootStoreContext.Provider value={rootStore}>
-        <ThemeProvider theme={theme}>
-            <RouterProvider router={router} />
-        </ThemeProvider>
-      </RootStoreContext.Provider>
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </StrictMode>
   );
 });

@@ -1,16 +1,15 @@
 import blankProfilePicture from '@assets/icons/blank-profile-picture.webp';
 import { Skeleton } from '@mui/material';
 import clsx from 'clsx';
-import { observer } from 'mobx-react-lite';
 import { useRef } from 'react';
 import Swiper from 'swiper';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 
-import { useStores } from '@/hooks/use-stores';
+import { useStores } from '@/stores/root-store';
 
 import styles from './testimonials.module.scss';
 
-export const Testimonials = observer(() => {
+export const Testimonials = () => {
   const swiperRef = useRef<Swiper | null>(null);
 
   const {
@@ -76,4 +75,4 @@ export const Testimonials = observer(() => {
       </div>
     </section>
   );
-});
+};

@@ -1,34 +1,37 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { create } from 'zustand';
 
 import { getTestimonialsList } from '@/api/get-testimonials-list';
 import { Testimonial } from '@/types/testimonial';
 
-class TestimonialsStore {
-  testimonialsList: Testimonial[] = [];
-  isLoading = false;
+type TestimonialsStore = {
+  testimonialsList: Testimonial[];
+  isLoading: boolean;
+  getTestimonialsListAction: () => Promise<void>;
+};
 
-  constructor() {
-    makeAutoObservable(this);
-  }
-
-  getTestimonialsListAction = async () => {
+export const useTestimonialsStore = create<TestimonialsStore>((set) => ({
+  testimonialsList: [],
+  isLoading: false,
+  getTestimonialsListAction: async () => {
     try {
-      this.isLoading = true;
-      const res = await getTestimonialsList();
+      set(() => ({
+        isLoading: true,
+      }));
 
-      runInAction(() => {
-        const groups =
-          res.data.reviews.body.reviewContent.reviews.hermes.groups;
-        this.testimonialsList = [...groups[0].items, ...groups[1].items];
-        this.isLoading = false;
-      });
+      const res = await getTestimonialsList();
+      const groups = res.data.reviews.body.reviewContent.reviews.hermes.groups;
+
+      console.log('from zustand', groups);
+
+      set(() => ({
+        testimonialsList: [...groups[0].items, ...groups[1].items],
+        isLoading: false,
+      }));
     } catch (error) {
       console.log(error);
-      this.isLoading = false;
+      set(() => ({
+        isLoading: false,
+      }));
     }
-
-    return this.testimonialsList;
-  };
-}
-
-export const testimonialsStore = new TestimonialsStore();
+  },
+}));
